@@ -11,6 +11,82 @@
             <p>Score: <span id="score">0</span></p>
             <button onclick="restartQuiz()">Lets Roll Again</button>
         </div>
+    <script>
+        const quizData = [
+        {
+            question: "Who is known as the 'God of Cricket'?",
+            options: ["Sachin Tendulkar", "Ricky Ponting", "Brian Lara", "Virat Kohli"],
+            answer: "Sachin Tendulkar"
+        },
+        {
+            question: "Which country has won the most Cricket World Cups?",
+            options: ["India", "Australia", "England", "West Indies"],
+            answer: "Australia"
+        },
+        {
+            question: "Who holds the record for the fastest century in ODIs?",
+            options: ["AB de Villiers", "Chris Gayle", "Shahid Afridi", "Virender Sehwag"],
+            answer: "AB de Villiers"
+        },
+        {
+            question: "Which player has scored the most international runs in cricket?",
+            options: ["Ricky Ponting", "Sachin Tendulkar", "Virat Kohli", "Brian Lara"],
+            answer: "Sachin Tendulkar"
+        },
+        {
+            question: "Who is the only cricketer to have scored a triple century in both Test and ODI cricket?",
+            options: ["Rohit Sharma", "Chris Gayle", "Virender Sehwag", "Sachin Tendulkar"],
+            answer: "Chris Gayle"
+        }
+    ];
+    let currentQuestion = 0;
+    let score = 0;
+    function loadQuestion() { //This function loads up the question when html loads and enables the clickable event
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        questionElement.textContent = quizData[currentQuestion].question;
+        optionsElement.innerHTML = "";
+        quizData[currentQuestion].options.forEach(option => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.onclick = function() {
+                checkAnswer(option);
+            };
+            optionsElement.appendChild(button);
+        });
+    }
+
+    function checkAnswer(selectedAnswer) { //This function will handle the click event for the submit button
+        const correctAnswer = quizData[currentQuestion].answer;
+        const feedbackElement = document.getElementById("feedback");
+        const scoreElement = document.getElementById("score");
         
-    </body>
+        if (selectedAnswer === correctAnswer) {
+            feedbackElement.textContent = "Correct!";
+            score++;
+            scoreElement.textContent = score;
+        } else {
+            feedbackElement.textContent = "Incorrect. The correct answer is: " + correctAnswer;
+        }
+
+        currentQuestion++;
+        if (currentQuestion < quizData.length) { //if else to find the final score
+            loadQuestion();
+        } else {
+            feedbackElement.textContent = "Quiz completed. Final score: " + score;
+            document.querySelector("button").disabled = true; // Disable submit button after quiz completion
+        }
+    }
+
+    function restartQuiz() { //function to restart the quiz if needed
+        currentQuestion = 0;
+        score = 0;
+        document.getElementById("score").textContent = score;
+        document.querySelector("button").disabled = false; // Enable submit button
+        loadQuestion();
+    }
+
+    loadQuestion();
+</script>
+</body>
 </html>
