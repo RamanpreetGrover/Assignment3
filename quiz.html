@@ -4,15 +4,18 @@
     <body>
         <div class="quiz-container">
             <h1>My Cricket Quiz</h1>
+            <br>
             <div id="question"></div>
+            <br>
             <div id="options"></div>
+            <br>
             <button onclick="checkAnswer()">Submit your Answer</button>
             <p class="feedback" id = "feedback"></p>
             <p>Score: <span id="score">0</span></p>
             <button onclick="restartQuiz()">Lets Roll Again</button>
         </div>
     <script>
-        const quizData = [
+        const quizData = [ // this variable holds the questions of the quiz.
         {
             question: "Who is known as the 'God of Cricket'?",
             options: ["Sachin Tendulkar", "Ricky Ponting", "Brian Lara", "Virat Kohli"],

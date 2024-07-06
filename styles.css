@@ -1,0 +1,54 @@
+ /* CSS styles for the quiz */
+ * {
+    background-color: black;
+ }
+ body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: wheat;
+}
+.quiz-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: wheat;
+    
+}
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: wheat;
+    padding: 8px;
+    font-family: 100%;
+}
+
+.feedback {
+    margin-top: 10px;
+    color: wheat;
+}
+button {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #000000;
+    color: white;
+    font-size: 20px;
+    border: solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: grey;
+}
+
+h1 {
+    text-align: center;
+    font-size: 250%;
+    color: wheat;
+    padding-top: 8px;
+}
