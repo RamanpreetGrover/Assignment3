@@ -52,3 +52,17 @@ h1 {
     color: wheat;
     padding-top: 8px;
 }
+
+.quiz-container, .login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: wheat;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+input {
+    color: wheat;
+}
